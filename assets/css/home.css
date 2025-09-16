@@ -1,0 +1,77 @@
+.main {
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+  color: var(--text);
+}
+
+.main .container {
+  width: 100%;
+  max-width: 700px;
+}
+
+.profile {
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-elev-1);
+}
+
+.card--profile {
+  width: min(700px, 100%);
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.card__avatar {
+  width: clamp(140px, 25vw, 230px);
+  height: clamp(140px, 25vw, 230px);
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 1rem;
+  box-shadow: var(--shadow-elev-2);
+  border: 2px solid var(--border);
+}
+
+.card__title {
+  font-size: 1.8rem;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.card__text {
+  color: var(--text-muted);
+  max-width: 70ch;
+  margin: 0 auto 2rem;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: .5rem;
+}
+
+.social__link {
+  color: var(--text);
+  font-size: 2.5rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.social__link:hover {
+  color: var(--accent);
+}
+
+.social__link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
