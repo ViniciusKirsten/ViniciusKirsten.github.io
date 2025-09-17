@@ -254,3 +254,36 @@ body {
   color: var(--text-muted);
   padding: .5rem 1rem;
 }
+
+/* Correções gerais (seguras) */
+*, *::before, *::after { box-sizing: border-box; }
+img, svg, video, canvas { max-width: 100%; height: auto; display: block; }
+
+/* --- MOBILE ONLY TESTE--- */
+@media (max-width: 640px) {
+
+  html, body { overflow-x: hidden; }
+
+  .container.header__bar {
+    flex-wrap: wrap;
+    gap: .75rem;
+    min-width: 0;
+  }
+
+  .header__nav .nav {
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+
+  .header__search {
+    order: 3;
+    width: 100%;
+    max-width: none;
+    flex: 1 1 220px;
+    min-width: 0;
+  }
+
+  .footer__bar { flex-wrap: wrap; }
+
+  .card--profile { padding: 1.25rem; }
+}
