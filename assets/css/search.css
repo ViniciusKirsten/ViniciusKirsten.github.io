@@ -1,33 +1,26 @@
-/* ========= Search (somente página de busca) ========= */
-
-/* Largura só do <main class="container"> da página de search */
 body > main.container{
   width: min(100% - 2rem, 700px);
   margin-inline: auto;
-  padding-block: 1rem 2rem; /* respiro entre header e footer */
+  padding-block: 1rem 2rem;
 }
 
-/* Escopo de variáveis SÓ para a seção de artigos */
 .articles{
-  --card-h: 188px;     /* altura fixa desktop */
-  --card-h-sm: 168px;  /* altura fixa mobile */
   --radius: .75rem;
+  --gap: 1rem;
   padding: 1rem 0 2rem;
 }
 
-/* Lista em grid */
 #articles-list{
   display: grid;
-  gap: 1rem;
+  gap: var(--gap);
+  grid-template-columns: 1fr;
 }
 
-/* ===== Card ===== */
 .article-card{
   position: relative;
-  height: var(--card-h);
   display: grid;
-  grid-template-rows: auto auto 1fr auto; /* título | meta | desc flex | tags */
-  gap: .5rem;
+  grid-template-rows: auto auto auto auto;
+  gap: .55rem;
   padding: 1rem;
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -35,8 +28,8 @@ body > main.container{
   box-shadow: var(--shadow-elev-1);
   transition: box-shadow .2s ease, transform .12s ease, border-color .2s ease;
   cursor: pointer;
-  overflow: hidden;           /* impede crescer com textos longos */
-  word-break: break-word;     /* quebra palavras gigantes do JSON */
+  overflow: hidden;
+  word-break: break-word;
 }
 
 @media (hover:hover){
@@ -51,7 +44,6 @@ body > main.container{
   outline-offset: 2px;
 }
 
-/* Título (máx. 2 linhas) */
 .article-title{
   margin: 0;
   font-size: 1.1rem;
@@ -61,33 +53,29 @@ body > main.container{
   line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  min-height: calc(1em * 1.3 * 2);
 }
-
-/* Link do título + stretched-link (card inteiro clicável) */
 .article-title a{
   color: inherit;
   text-decoration: none;
-  position: static; /* mantém fluxo normal */
+  position: relative;
   z-index: 2;
 }
 .article-title a::after{
   content: "";
   position: absolute;
-  inset: 0;         /* cobre o card todo */
+  inset: -0.5rem;
   z-index: 1;
   background: transparent;
-  pointer-events: auto; /* captura clique em toda a área */
+  pointer-events: auto;
 }
-/* garante que o conteúdo fique acima visualmente */
-.article-card > *{ position: relative; z-index: 2; }
 
-/* Meta (data) */
 .article-meta{
   color: var(--text-muted);
   font-size: .875rem;
+  min-height: 1.2em;
 }
 
-/* Descrição (máx. 3 linhas desktop) */
 .article-desc{
   color: var(--text);
   display: -webkit-box;
@@ -96,10 +84,9 @@ body > main.container{
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  min-height: calc(1em * 1.5 * 3); /* reserva espaço p/ 3 linhas */
+  min-height: 0;
 }
 
-/* Tags (limita a 1 linha visível para manter altura) */
 .article-tags{
   display: flex;
   flex-wrap: wrap;
@@ -107,8 +94,6 @@ body > main.container{
   list-style: none;
   margin: 0;
   padding: 0;
-  max-height: 2.2rem;  /* ~1 linha de chips */
-  overflow: hidden;
   color: var(--text-muted);
   font-size: .85rem;
 }
@@ -119,7 +104,6 @@ body > main.container{
   background: var(--surface);
 }
 
-/* ===== Responsivo ===== */
 @media (max-width: 640px){
   body > main.container{
     width: 100%;
@@ -130,7 +114,6 @@ body > main.container{
   #articles-list{ gap: .75rem; }
 
   .article-card{
-    height: var(--card-h-sm);
     padding: .875rem .9rem;
     border-radius: .65rem;
   }
@@ -138,11 +121,13 @@ body > main.container{
   .article-title{ font-size: 1rem; }
 
   .article-desc{
-    -webkit-line-clamp: 4;    /* lê um pouco mais no mobile */
+    -webkit-line-clamp: 4;
     line-clamp: 4;
-    min-height: calc(1em * 1.5 * 4);
   }
 }
 
-/* Acessibilidade: foco no link já tratado pelo focus-within do card */
 .article-title a:focus{ outline: none; }
+
+@media (prefers-reduced-motion: reduce){
+  .article-card{ transition: none; }
+}
