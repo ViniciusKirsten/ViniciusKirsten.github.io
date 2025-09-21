@@ -19,5 +19,12 @@
     "link": "/index.html",
     "description": "Teste Vinicius",
     "tags": ["Teologia", "Tecnologia", "Projeto"]
+  },
+    {
+    "title": "teste artigo",
+    "date": "2025-09-26",
+    "link": "/artigos/teste_artigo.html",
+    "description": "Teste Vinicius",
+    "tags": ["Teologia", "Tecnologia", "Projeto"]
   }
 ]

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinicius Mendonça</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/assets/css/variables.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/articles.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/common.min.js" defer></script>
+    
+    <script src="/assets/js/articles.js" defer></script> 
+    <script src="/assets/js/main.js" defer></script>
+
+</head>
+<body>
+    <div data-include="header"></div>
+
+    <main class="main">
+      <div class="container">
+        <article class="article">
+          <header class="article__header">
+            <h1 class="article__title">Titulo do artigo</h1>
+            <time class="article__date" datetime="2025-11-15">15/11/2025</time>
+            <p class="article__excerpt">
+              Neste post vamos falar de determinado assunto e esse breve resumo descreve aquilo que vamos abordar e o por que eu resolvi escrever sobre isso ou até mesmo explicar ou estudar determinada informação, conforme descrito aqui.
+            </p>
+          </header>
+
+          <section class="article__section" id="topico-01">
+            <h3>Tópico 01</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus arcu magna, porttitor et accumsan sit amet, bibendum a metus. Suspendisse id urna ligula. Phasellus finibus elit et ante commodo, id mattis neque aliquam. Phasellus sed mi quis est porttitor tincidunt at in nisi. Vivamus porta nulla nec enim molestie feugiat. Curabitur eget pulvinar nunc, sit amet pellentesque massa. Suspendisse condimentum tortor et auctor placerat. Proin rutrum gravida metus a vulputate. Suspendisse placerat faucibus nisl non eleifend. In sit amet tellus quis nibh varius sollicitudin vitae in arcu. Etiam posuere odio ipsum, quis accumsan elit blandit a. Morbi hendrerit ligula in dignissim porttitor. In vitae tempor ligula. Nunc aliquet eros quis nunc ultrices, sit amet suscipit odio dignissim. Pellentesque pharetra molestie pellentesque.
+            </p>
+
+            <figure class="article__media">
+              <img src="/assets/img/teste.png" alt="Descrição breve da imagem ilustrativa">
+              <figcaption>imagem de algo</figcaption>
+            </figure>
+          </section>
+
+          <section class="article__section" id="topico-02">
+            <h3>Tópico 02</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus arcu magna, porttitor et accumsan sit amet, bibendum a metus. Suspendisse id urna ligula. Phasellus finibus elit et ante commodo, id mattis neque aliquam. Phasellus sed mi quis est porttitor tincidunt at in nisi. Vivamus porta nulla nec enim molestie feugiat. Curabitur eget pulvinar nunc, sit amet pellentesque massa. Suspendisse condimentum tortor et auctor placerat. Proin rutrum gravida metus a vulputate. Suspendisse placerat faucibus nisl non eleifend. In sit amet tellus quis nibh varius sollicitudin vitae in arcu. Etiam posuere odio ipsum, quis accumsan elit blandit a. Morbi hendrerit ligula in dignissim porttitor. In vitae tempor ligula. Nunc aliquet eros quis nunc ultrices, sit amet suscipit odio dignissim. Pellentesque pharetra molestie pellentesque.
+            </p>
+
+            <h4>Pontos de atenção</h4>
+            <ul>
+              <li>Lorem ipsum dolor sit amet</li>
+              <li>Lorem ipsum dolor sit amet</li>
+              <li>Lorem ipsum dolor sit amet</li>
+              <li>Lorem ipsum dolor sit amet</li>
+            </ul>
+          </section>
+
+          <section class="article__section" id="topico-03">
+            <h3>Tópico 03</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus arcu magna, porttitor et accumsan sit amet, bibendum a metus. Suspendisse id urna ligula.
+            </p>
+
+            <figure class="article__media video">
+              <iframe
+                class="yt"
+                src="https://www.youtube.com/embed/Xb9iB33m0xU?si=9o1ljKTu5Bqf_a-Y"
+                title="Video do Youtube"
+                loading="lazy"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+              <figcaption>Video do Youtube</figcaption>
+            </figure>
+
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus arcu magna, porttitor et accumsan sit amet, bibendum a metus. Suspendisse id urna ligula. Phasellus finibus elit et ante commodo, id mattis neque aliquam. Phasellus sed mi quis est porttitor tincidunt at in nisi. Vivamus porta nulla nec enim molestie feugiat. Curabitur eget pulvinar nunc, sit amet pellentesque massa.
+            </p>
+
+            <pre class="code"><code class="language-cs">using System;
+
+namespace HelloWorldApp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, World!");
+        }
+    }
+}
+</code></pre>
+
+            </pre>
+
+            <p><code >static void Main</code> → Lorem ipsum dolor sit amet</p>
+
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus arcu magna, porttitor et accumsan sit amet, bibendum a metus. Suspendisse id urna ligula. Phasellus finibus elit et ante commodo, id mattis neque aliquam. Phasellus sed mi quis est porttitor tincidunt at in nisi. Vivamus porta nulla nec enim molestie feugiat. Curabitur eget pulvinar nunc, sit amet pellentesque massa.
+            </p>
+          </section>
+
+          <footer class="article__footer">
+            <h3>Referencias</h3>
+            <ul class="refs">
+              <li><a href="https://google.com" target="_blank" rel="noopener">Como ajudou esse site.</a></li>
+              <li><a href="https://youtube.com" target="_blank" rel="noopener">Video de referencia</a></li>
+            </ul>
+          </footer>
+        </article>
+      </div>
+</main>
+
+
+    <div data-include="footer"></div>
+</body>
+</html>

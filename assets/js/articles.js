@@ -132,3 +132,106 @@
   }
   run();
 })();
+
+// --- Realce + botão copiar para blocos de código (fix indent + cores) ---
+(function () {
+  "use strict";
+
+  // Remove indentação comum. Se a primeira linha tem 0 e as demais têm indent > 0,
+  // ignora a primeira linha ao calcular o mínimo (caso típico de <pre> em HTML).
+  function dedentSmart(text) {
+    const lines = text.replace(/\r\n?/g, "\n").split("\n");
+
+    // tira vazias do começo/fim
+    while (lines.length && lines[0].trim() === "") lines.shift();
+    while (lines.length && lines[lines.length - 1].trim() === "") lines.pop();
+    if (!lines.length) return "";
+
+    const firstIndent = (lines[0].match(/^(\s+)/) || ["", ""])[1].length;
+
+    // min geral
+    let minAll = Infinity;
+    for (const ln of lines) {
+      if (!ln.trim()) continue;
+      const m = ln.match(/^(\s+)/);
+      const indent = m ? m[1].length : 0;
+      if (indent < minAll) minAll = indent;
+      if (minAll === 0) break;
+    }
+    if (!isFinite(minAll)) minAll = 0;
+
+    // min excluindo a primeira linha (para o caso clássico “primeira sem indent”)
+    let minSkipFirst = Infinity;
+    for (let i = 1; i < lines.length; i++) {
+      const ln = lines[i];
+      if (!ln.trim()) continue;
+      const m = ln.match(/^(\s+)/);
+      const indent = m ? m[1].length : 0;
+      if (indent < minSkipFirst) minSkipFirst = indent;
+      if (minSkipFirst === 0) break;
+    }
+    if (!isFinite(minSkipFirst)) minSkipFirst = 0;
+
+    // se o min geral é 0 só por causa da primeira linha, use o min sem a primeira
+    const min = (minAll === 0 && firstIndent === 0 && minSkipFirst > 0)
+      ? minSkipFirst
+      : minAll;
+
+    return lines.map(ln => ln.slice(Math.min(min, ln.length))).join("\n");
+  }
+
+  function addCopyButton(preEl, codeEl) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "copy-btn";
+    btn.textContent = "Copiar";
+    btn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(codeEl.textContent);
+        const old = btn.textContent;
+        btn.textContent = "Copiado!";
+        setTimeout(() => (btn.textContent = old), 1200);
+      } catch {
+        const old = btn.textContent;
+        btn.textContent = "Erro";
+        setTimeout(() => (btn.textContent = old), 1200);
+      }
+    });
+    preEl.appendChild(btn);
+  }
+
+  function enhance() {
+    const blocks = document.querySelectorAll(".article pre.code > code");
+    if (!blocks.length) return;
+
+    blocks.forEach(codeEl => {
+      // 1) Dedenta de forma “esperta”
+      codeEl.textContent = dedentSmart(codeEl.textContent);
+
+      // 2) Garante que tenha language-*
+      //    (para C#, tanto "language-cs" quanto "language-csharp" funcionam)
+      if (![...codeEl.classList].some(c => c.startsWith("language-"))) {
+        codeEl.classList.add("language-plaintext");
+      }
+
+      // 3) Highlight
+      if (window.hljs && typeof window.hljs.highlightElement === "function") {
+        window.hljs.highlightElement(codeEl);
+      } else if (window.hljs && typeof window.hljs.highlightAll === "function") {
+        window.hljs.highlightAll();
+      }
+
+      // 4) Botão copiar
+      const pre = codeEl.closest("pre.code");
+      if (pre && !pre.querySelector(".copy-btn")) {
+        addCopyButton(pre, codeEl);
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", enhance);
+  } else {
+    enhance();
+  }
+})();

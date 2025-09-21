@@ -1,0 +1,189 @@
+/* ========== Articles (estilos específicos do conteúdo do artigo) ========== */
+/* Não altera header/footer nem .main/.container do main.css */
+
+/* Estrutura base */
+.article{
+  display: grid;
+  gap: 1.25rem;
+  color: var(--text);
+}
+
+/* Cabeçalho do artigo */
+.article__header{
+  display: grid;
+  gap: .6rem;
+  padding-bottom: .75rem;
+  border-bottom: 1px solid var(--border);
+}
+.article__title{
+  line-height: 1.2;
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -.012em;
+}
+.article__date{
+  color: var(--text-muted);
+  font-size: .95rem;
+}
+.article__excerpt{
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+/* Seções e títulos internos */
+.article__section{
+  display: grid;
+  gap: .75rem;
+}
+.article__section h3{
+  font-size: clamp(1.15rem, 1rem + .6vw, 1.4rem);
+  line-height: 1.25;
+}
+.article__section h4{
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
+
+/* Tipografia e listas */
+.article p{ text-align: left; }
+.article p + p{ margin-top: .5rem; }
+.article ul, .article ol{
+  padding-left: 1.25rem;
+  display: grid;
+  gap: .35rem;
+}
+.article li{ margin: 0; }
+
+/* Links dentro do artigo */
+.article a{
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: .15em;
+}
+.article a:hover{ filter: brightness(1.1); }
+
+/* Mídia (imagem, vídeo) */
+.article__media{
+  display: grid;
+  gap: .5rem;
+  margin: .5rem 0;
+}
+.article__media img{
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: .5rem;
+  background: var(--surface);
+  box-shadow: var(--shadow-elev-1);
+}
+.article__media figcaption{
+  color: var(--text-muted);
+  font-size: .9rem;
+}
+
+/* Vídeo responsivo (YouTube) */
+.article__media.video .yt{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--border);
+  border-radius: .5rem;
+  background: #000;
+  display: block;
+}
+
+/* Bloco de código */
+.article .code{
+  padding: .9rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: .6rem;
+  overflow: auto;
+  box-shadow: var(--shadow-elev-1);
+}
+.article .code code{
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: .95rem;
+  line-height: 1.5;
+  color: var(--text);
+  tab-size: 2;
+  white-space: pre;
+}
+
+/* Rodapé do artigo (referências) */
+.article__footer{
+  margin-top: .5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+.article__footer .refs{
+  list-style: disc;
+  padding-left: 1.25rem;
+  display: grid;
+  gap: .25rem;
+}
+
+/* Acessibilidade e responsivo */
+@media (max-width: 640px){
+  /* O main.css já define padding e max-width.
+     Aqui só ajustamos tipografia para telas pequenas. */
+  .article__title{
+    font-size: clamp(1.4rem, 1.1rem + 2.5vw, 1.75rem);
+  }
+}
+
+/* Respeita redução de movimento */
+@media (prefers-reduced-motion: reduce){
+  *{ transition: none !important; }
+}
+
+/* ===== Code block aprimorado ===== */
+.article .code{
+  position: relative;
+  padding: 1rem 2.75rem 1rem 1rem; /* espaço p/ botão à direita */
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: .6rem;
+  overflow: auto;
+  box-shadow: var(--shadow-elev-1);
+}
+
+.article .code code{
+  display: block;
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: .95rem;
+  line-height: 1.55;
+  color: var(--text);
+  tab-size: 2;
+  white-space: pre;          /* preserva quebras/indentação */
+  font-variant-ligatures: none;
+}
+
+/* Botão copiar no canto superior direito */
+.article .code .copy-btn{
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  padding: .3rem .6rem;
+  border: 1px solid var(--border);
+  border-radius: .4rem;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  line-height: 1;
+  opacity: .9;
+  transition: box-shadow .2s ease, opacity .2s ease, transform .08s ease;
+}
+.article .code .copy-btn:hover{
+  opacity: 1;
+  box-shadow: var(--shadow-elev-1), var(--shadow-elev-2);
+}
+.article .code .copy-btn:active{
+  transform: translateY(1px);
+}
+
+/* Ajuste do tema do highlight (herda bordas e radius) */
+.article .code pre,
+.article .code .hljs{
+  background: transparent !important; /* usa var(--surface) do contêiner */
+}
