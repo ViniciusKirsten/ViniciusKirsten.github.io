@@ -8,16 +8,17 @@
             <nav class="header__nav" aria-label="Principal">
                 <ul class="nav">
                     <li><a href="/">Home</a></li>
+                    <li><a href="#">Projetos</a></li>
                     <li><a href="/search.html">Artigos</a></li>
                     <li><a href="#">Sobre</a></li>
                 </ul>
             </nav>
 
-            <form class="header__search" role="search" aria-label="Buscar artigos">
+            <form class="header__search" action="/search.html" role="search" aria-label="Buscar artigos">
                 <button class="header__search-icon" type="submit" aria-label="Buscar">
                     <i class="bi bi-search"></i>
                 </button>
-                <input class="header__search-input" type="search" name="q" id="q" placeholder="Pesquisar">
+                <input class="header__search-input" type="search" name="q" id="site-search" placeholder="Pesquisar" autocomplete="off">
             </form>
 
             <div class="header__actions">
