@@ -1,30 +1,24 @@
 [
   {
-    "title": "Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
-    "date": "2025-09-01",
-    "link": "/index.html",
+    "title": "Projetos",
+    "date": "2025-09-22",
+    "link": "/artigos/projetos.html",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et hendrerit mauris. orem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et hendrerit mauris.Mauris mollis ligula sit amet eros mollis rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et hendrerit mauris. Mauris mollis ligula sit amet eros mollis rhoncus.",
-    "tags": ["Teologia", "Tecnologia", "Projeto", "Teclado", "Mouse", "PC", "Software"]
+    "tags": ["Projetos", "Tecnologia", "C#", ".NET"]
   },
-    {
-    "title": "Lorem ipsum dolor sit amet",
-    "date": "2025-09-01",
-    "link": "/index.html",
+  {
+    "title": "Sobre",
+    "date": "2025-09-22",
+    "link": "/artigos/sobre.html",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et hendrerit mauris. orem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et hendrerit mauris.Mauris mollis ligula sit amet eros mollis rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et hendrerit mauris. Mauris mollis ligula sit amet eros mollis rhoncus.",
-    "tags": ["Teologia", "Tecnologia", "Projeto"]
+    "tags": ["Sobre", "Pessoal"]
   },
-    {
-    "title": "Lorem ipsum dolor sit amet",
-    "date": "2025-09-25",
-    "link": "/index.html",
-    "description": "Teste Vinicius",
-    "tags": ["Teologia", "Tecnologia", "Projeto"]
-  },
-    {
-    "title": "teste artigo",
-    "date": "2025-09-26",
+  {
+    "title": "teste",
+    "date": "2025-09-30",
     "link": "/artigos/teste_artigo.html",
-    "description": "Teste Vinicius",
-    "tags": ["Teologia", "Tecnologia", "Projeto"]
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et hendrerit mauris. orem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et hendrerit mauris.Mauris mollis ligula sit amet eros mollis rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et hendrerit mauris. Mauris mollis ligula sit amet eros mollis rhoncus.",
+    "tags": ["Sobre", "Pessoal"]
   }
 ]
+
